@@ -25,7 +25,8 @@ const Hotel = sequelize.define('Hotel', {
     }
 }, {
     tableName: 'Hotels',
-    timestamps: false
+    timestamps: false,
+    underscored: true
 });
 
 const Clients = sequelize.define('Clients', {
@@ -55,7 +56,8 @@ const Clients = sequelize.define('Clients', {
     }
 }, {
     tableName: 'Clients',
-    timestamps: false
+    timestamps: false,
+    underscored: true
 });
 
 const Rooms = sequelize.define('Rooms', {
@@ -90,7 +92,8 @@ const Rooms = sequelize.define('Rooms', {
     }
 }, {
     tableName: 'Rooms',
-    timestamps: false
+    timestamps: false,
+    underscored: true
 });
 
 const Bookings = sequelize.define('Bookings', {
@@ -133,7 +136,8 @@ const Bookings = sequelize.define('Bookings', {
     }
 }, {
     tableName: 'Bookings',
-    timestamps: false
+    timestamps: false,
+    underscored: true
 });
 
 Hotel.hasMany(Rooms, { foreignKey: 'hotelId' });

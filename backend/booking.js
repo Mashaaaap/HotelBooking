@@ -56,6 +56,7 @@ router.post('/bookings', async (req, res) => {
 
         res.status(201).json(booking);
     } catch (err) {
+        console.error(err)
         res.status(500).json({ error: err.message });
     }
 });
@@ -71,6 +72,15 @@ router.delete('/bookings/:id', async (req, res) => {
 
         await booking.destroy();
         res.json({ message: 'Бронювання видалено' });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+router.get('/bookings', async (req, res) => {
+    try {
+        const bookings = await Bookings.findAll();
+        res.json(bookings);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
